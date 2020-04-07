@@ -1,34 +1,73 @@
 <html>
 <head>
-    <link rel="icon" type="image/png" href="logo.png" />
-    <link rel="shortcut icon" type="image/png" href="logo.png" />
-    <title>Menchul</title>
-    <meta name=viewport content="width=device-width, initial-scale=1">
+  <title>Menchul</title>
+  <link rel="icon" type="image/svg+xml" href="Menchul.svg" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control: max-age=31536000" content="public">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63202033-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-63202033-1');
+  </script>
+
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat&display=swap' rel='stylesheet'>
 </head>
 <body>
-    <style>
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: #6699FF;
-}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #6699FF;
+      font-family: 'Montserrat';
+      color: white;
+    }
 
-div img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    max-height: 100%;
-    height: auto;
-    max-width: 100%;
-    width: auto;
-}
-    </style>
-    <div>
-        <img src="logo.png" alt="Menchul" />
+    div img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      max-height: 100%;
+      height: auto;
+      max-width: 100%;
+      width: auto;
+    }
+
+    .labelMenchul {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      text-align: center;
+      justify-content: center;
+    }
+  </style>
+
+  <div>
+    <img src="Menchul.svg" alt="Menchul" />
+
+    <div class="labelMenchul" style="font-size: 6vmax; height: 70%;">
+      MENCHUL
     </div>
+
+    <div class="labelMenchul" style="font-size: 3vmax; height: 85%;">
+      Changing retail
+    </div>
+
+  </div>
 </body>
 </html>

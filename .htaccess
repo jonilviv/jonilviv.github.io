@@ -1,0 +1,15 @@
+
+
+RewriteOptions inherit
+
+RewriteEngine On
+
+Header set Cache-Control "max-age=31536000, public"
+
+
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^menchul\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.menchul\.com$
+RewriteRule ^cv\/\/?(.*)$ "https\:\/\/menchul\.com" [R=302,L]
