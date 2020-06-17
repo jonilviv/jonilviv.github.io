@@ -26,7 +26,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
-<body onload="$('#privacyPolicyText').modal()">
+<body onload="checkCookiesAccepted()">
   <style>
     html, body {
       height: 100%;
@@ -60,6 +60,54 @@
     }
   </style>
 
+  <script>
+    function setCookiesAccepted()
+    {
+      document.cookie = "cookies_accepted=" + Date.now() + ";SameSite=Strict;Path=/;HttptOnly=false;;Max-Age=@DateTime.MaxValue.Ticks";
+    }
+
+    function getCookie(name)
+    {
+      var dc = document.cookie;
+      var prefix = name + "=";
+      var begin = dc.indexOf("; " + prefix);
+
+      if (begin == -1)
+      {
+        begin = dc.indexOf(prefix);
+
+        if (begin != 0)
+        {
+          return null;
+        }
+      }
+      else
+      {
+        begin += 2;
+        var end = document.cookie.indexOf(";", begin);
+
+        if (end == -1)
+        {
+          end = dc.length;
+        }
+      }
+
+      var result = decodeURI(dc.substring(begin + prefix.length, end));
+
+      return result;
+    }
+
+    function checkCookiesAccepted()
+    {
+      var myCookie = getCookie("cookies_accepted");
+
+      if (myCookie == null)
+      {
+        $('#privacyPolicyText').modal();
+      }
+    }
+  </script>
+
   <div>
     <img src="Menchul.svg" alt="Menchul" />
 
@@ -68,7 +116,7 @@
     </div>
 
     <div class="labelMenchul" style="font-size: 3vmax; height: 85%;">
-      Changing retail
+      We are changing trade
     </div>
 
   </div>
@@ -79,7 +127,7 @@
         <div class="modal-header">
           <h5 id="privacyPolicyLabel" class="modal-title">Menchul Privacy policy</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="setCookiesAccepted()">Accept</button>
           </button>
         </div>
         <div class="modal-body">
@@ -116,6 +164,7 @@
           <h2>Cookies</h2>
           <p>To enrich and perfect your online experience, Menchul uses "Cookies", similar technologies and services provided by others to display personalized content, appropriate advertising and store your preferences on your computer.</p>
           <p>A cookie is a string of information that a website stores on a visitor's computer, and that the visitor's browser provides to the website each time the visitor returns. Menchul uses cookies to help Menchul identify and track visitors, their usage of https://menchul.com, and their website access preferences. Menchul visitors who do not wish to have cookies placed on their computers should set their browsers to refuse cookies before using Menchul's websites, with the drawback that certain features of Menchul's websites may not function properly without the aid of cookies.</p>
+          <p>This site uses cookies from Google to deliver its services and to analyze traffic. Your IP address and user-agent are shared with Google along with performance and security metrics to ensure quality of service, generate usage statistics, and to detect and address abuse. <a href="https://policies.google.com/technologies/cookies" target="_blank">Learn more...</a></p>
           <p>By continuing to navigate our website without changing your cookie settings, you hereby acknowledge and agree to Menchul's use of cookies.</p>
 
           <h2>Privacy Policy Changes</h2>
@@ -127,7 +176,7 @@
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="setCookiesAccepted()">Accept</button>
         </div>
       </div>
     </div>
